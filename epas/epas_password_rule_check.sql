@@ -21,10 +21,9 @@ RETURN boolean IS
        END IF;                                                                      
     END LOOP;                                                                       
                                                                                     
-     IF substring(new_password FROM old_password) IS NOT NULL                       
-   THEN                                                                             
-     RAISE EXCEPTION 'New password cannot include old password';                    
-   END IF;                                                                          
+    IF substring(new_password FROM old_password) IS NOT NULL THEN                                                                             
+       RAISE EXCEPTION 'New password cannot include old password';                    
+    END IF;                                                                          
                                                                                     
     IF delimiter = TRUE THEN                                                        
        RAISE EXCEPTION 'Password cannot contain a double-quote character';          
